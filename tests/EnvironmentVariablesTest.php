@@ -12,7 +12,7 @@ final class EnvironmentVariablesTest extends TestCase
 
     public function testCanLoadFile(): void
     {
-        $class = new EnvironmentVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
+        $class = new EnvironmentVariables();
         $this->assertEquals(
             file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '.env'), 
             $class->loadFile(__DIR__ . DIRECTORY_SEPARATOR . '.env')
@@ -21,7 +21,7 @@ final class EnvironmentVariablesTest extends TestCase
 
     public function testCanAssignVariables(): void
     {
-        $class = new EnvironmentVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
+        $class = new EnvironmentVariables();
         $class->assignVariables('TEST2=testing2');
         $this->assertEquals('testing2', getenv('TEST2'));
     }

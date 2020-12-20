@@ -17,10 +17,10 @@ class EnvironmentVariables
      * @param [type] $file
      * @return void
      */
-    public function __construct($file) 
+    public function __construct($file = null) 
     {
-        $contents = $this->loadFile($file);
-        if ($contents) {
+        if ($file) {
+            $contents = $this->loadFile($file);
             $this->assignVariables($contents);
         }
     } 
