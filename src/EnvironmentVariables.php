@@ -19,11 +19,21 @@ class EnvironmentVariables
      */
     public function __construct($file = null) 
     {
+        $this->addVariables($file);
+    } 
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $file
+     * @return void
+     */
+    public function addVariables($file) {
         if ($file) {
             $contents = $this->loadFile($file);
             $this->assignVariables($contents);
         }
-    } 
+    }
 
     /**
      * Undocumented function

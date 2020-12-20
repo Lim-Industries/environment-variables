@@ -5,8 +5,15 @@ final class EnvironmentVariablesTest extends TestCase
 {
     public function testCanUseEnvironmentVariables(): void
     {
-        $simple = new EnvironmentVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
+        $class = new EnvironmentVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
 
+		$this->assertEquals('testing', getenv('TEST'));
+    }
+
+    public function testCanAddVariables(): void
+    {
+        $class = new EnvironmentVariables();
+        $class->addVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
 		$this->assertEquals('testing', getenv('TEST'));
     }
 
