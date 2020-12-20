@@ -1,0 +1,13 @@
+{
+    "name": "lim-industries/environment-variables",
+    "description": "Library for importing data from .env files",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Andrew LIm",
+            "email": "andrew@limindustries.com"
+        }
+    ],
+    "require": {}
+}
