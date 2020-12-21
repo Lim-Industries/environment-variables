@@ -3,11 +3,13 @@
  * Sets environment variables from a .env file.
  * 
  * @category Configuration
- * @package  Milim
+ * @package  EnvironmentVariables
  * @author   Andrew Lim <andrew@limindustries.com>
  * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
  * @link     http://limindustries.com
  */
+namespace LimIndustries\EnvironmentVariables;
+
 class EnvironmentVariables
 {
     /**
@@ -68,8 +70,7 @@ class EnvironmentVariables
         }
     }
 
-    // asign vars
-    // load file
+    // import vars
 }
 
 // new EnvironmentVariables();
