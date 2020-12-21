@@ -33,4 +33,9 @@ final class EnvironmentVariablesTest extends TestCase
         $class->assignVariables('TEST2=testing2');
         $this->assertEquals('testing2', getenv('TEST2'));
     }
+
+    public function testCanFail(): void
+    {
+		$this->assertEquals(false, true);
+    }
 }
