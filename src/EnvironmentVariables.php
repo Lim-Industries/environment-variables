@@ -21,7 +21,7 @@ class EnvironmentVariables
      */
     public function __construct($file = null) 
     {
-        $this->addVariables($file);
+        $this->importVariables($file);
     } 
 
     /**
@@ -30,7 +30,7 @@ class EnvironmentVariables
      * @param [type] $file
      * @return void
      */
-    public function addVariables($file) {
+    public function importVariables($file) {
         if ($file) {
             $contents = $this->loadFile($file);
             $this->assignVariables($contents);

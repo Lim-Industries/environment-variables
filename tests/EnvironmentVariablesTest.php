@@ -11,10 +11,10 @@ final class EnvironmentVariablesTest extends TestCase
 		$this->assertEquals('testing', getenv('TEST'));
     }
 
-    public function testCanAddVariables(): void
+    public function testCanImportVariables(): void
     {
         $class = new EnvironmentVariables();
-        $class->addVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
+        $class->importVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
 		$this->assertEquals('testing', getenv('TEST'));
     }
 
@@ -34,8 +34,8 @@ final class EnvironmentVariablesTest extends TestCase
         $this->assertEquals('testing2', getenv('TEST2'));
     }
 
-    public function testCanFail(): void
-    {
-		$this->assertEquals(false, true);
-    }
+    // public function testCanFail(): void
+    // {
+	// 	$this->assertEquals(false, true);
+    // }
 }
