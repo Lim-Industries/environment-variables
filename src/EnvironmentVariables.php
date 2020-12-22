@@ -1,12 +1,11 @@
 <?php declare(strict_types=1);
-/**
- * Sets environment variables from a .env file.
- * 
- * @category Configuration
- * @package  EnvironmentVariables
- * @author   Andrew Lim <andrew@limindustries.com>
- * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
- * @link     http://limindustries.com
+/*
+ * This file is part of lim-industries/environment-variables.
+ *
+ * (c) Andrew Lim <andrew@limindustries.com>.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 namespace LimIndustries\EnvironmentVariables;
 
