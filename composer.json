@@ -1,0 +1,24 @@
+{
+    "name": "lim-industries/environment-variables",
+    "description": "Library for importing data from .env files",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Andrew LIm",
+            "email": "andrew@limindustries.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests",
+        "test-win": "vendor\\bin\\phpunit tests -v"
+    }
+}
