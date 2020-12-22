@@ -12,6 +12,9 @@ namespace LimIndustries\EnvironmentVariables;
 
 class EnvironmentVariables
 {
+    // Hold the class instance.
+    private static $instance = null;
+
     /**
      * Checks to see if the .env exists and parses it to set the 
      * evironment variables.
@@ -19,10 +22,10 @@ class EnvironmentVariables
      * @param [type] $file
      * @return void
      */
-    public function __construct($file = null) 
+    private function __construct($file = null) 
     {
         $this->importVariables($file);
-    } 
+    }
 
     /**
      * Undocumented function
@@ -30,10 +33,24 @@ class EnvironmentVariables
      * @param [type] $file
      * @return void
      */
-    public function importVariables($file) {
+    public static function getInstance($file = null)
+    {
+        if (self::$instance == null) {
+            self::$instance = new EnvironmentVariables($file);
+        }
+        return self::$instance;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $file
+     * @return void
+     */
+    public static function importVariables($file) {
         if ($file) {
-            $contents = $this->loadFile($file);
-            $this->assignVariables($contents);
+            $contents = self::loadFile($file);
+            self::assignVariables($contents);
         }
     }
 
@@ -43,7 +60,7 @@ class EnvironmentVariables
      * @param [type] $file
      * @return void
      */
-    public function loadFile($file)
+    public static function loadFile($file)
     {
         try {
             // run your code here
@@ -60,7 +77,7 @@ class EnvironmentVariables
      * @param [type] $contents
      * @return void
      */
-    public function assignVariables($contents)
+    public static function assignVariables($contents)
     {
         $variables = explode(PHP_EOL, $contents);
         $variables = array_filter($variables);
@@ -73,5 +90,5 @@ class EnvironmentVariables
     // import vars
 }
 
-// new EnvironmentVariables();
+// EnvironmentVariables::getInstance(__DIR__ . DIRECTORY_SEPARATOR . '.env');
 // echo getenv('APP_ENV');
