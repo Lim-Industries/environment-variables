@@ -82,7 +82,17 @@ class EnvironmentVariables
         $variables = array_filter($variables);
         foreach ($variables as $variable) {
             $keyValue = explode('=', $variable);
-            putenv($keyValue[0] . "=" . trim($keyValue[1]));
+            $value = trim($keyValue[1]);
+
+            switch ($value) {
+                case "false":
+                    $value = '';
+                    break;
+                default:
+                    break;
+            }
+
+            putenv($keyValue[0] . "=" . $value);
         }
     }
 

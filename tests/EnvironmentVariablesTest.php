@@ -10,6 +10,13 @@ final class EnvironmentVariablesTest extends TestCase
 		$this->assertEquals('testing', getenv('TEST'));
     }
 
+    public function testCanUseBooleanEnvironmentVariables(): void
+    {
+        EnvironmentVariables::getInstance(__DIR__ . DIRECTORY_SEPARATOR . '.env');
+		$this->assertEquals('true', getenv('TESTTRUE'));
+		$this->assertEquals('', getenv('TESTFALSE'));
+    }
+
     public function testCanImportVariables(): void
     {
         EnvironmentVariables::importVariables(__DIR__ . DIRECTORY_SEPARATOR . '.env');
