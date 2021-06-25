@@ -81,19 +81,46 @@ class EnvironmentVariables
         $variables = explode(PHP_EOL, $contents);
         $variables = array_filter($variables);
         foreach ($variables as $variable) {
-            $keyValue = explode('=', $variable);
-            $value = trim($keyValue[1]);
+            if (self::validate($variable)) { 
+                $keyValue = explode('=', $variable);
+                $value = trim($keyValue[1]);
 
-            switch ($value) {
-                case "false":
-                    $value = '';
-                    break;
-                default:
-                    break;
+                switch ($value) {
+                    case "false":
+                        $value = '';
+                        break;
+                    default:
+                        break;
+                }
+
+                putenv($keyValue[0] . "=" . $value);
             }
-
-            putenv($keyValue[0] . "=" . $value);
         }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $string
+     * @return void
+     */
+    private static function validate($string)
+    {
+        if (substr($string, 0, 1) === "#") {
+            // If starts with #
+            return false;
+        } else if (strpos($string, '=') === false) {
+            // If not a key pair
+            return false;
+        } else {
+            $keyValue = explode('=', $string);
+            if (getenv($keyValue[0]) != null) {
+                // If already exists
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // import vars
