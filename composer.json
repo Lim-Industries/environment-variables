@@ -1,6 +1,7 @@
 {
     "name": "limindustries/environment-variables",
     "description": "Library for importing data from .env files",
+    "minimum-stability": "stable",
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [
